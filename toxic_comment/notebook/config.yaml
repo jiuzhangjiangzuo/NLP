@@ -1,0 +1,12 @@
+training:
+  batch_normalization: true
+  dropout_rate: 0.5
+  epochs: 10
+  gradient_cliping: true
+  learning_rate: 0.8
+  model_name: textcnn
+  optimizer: sgd
+preprocessing:
+  input_path: ./data/
+  output_path: ./preprocessed
+  split_ratio: 0.3

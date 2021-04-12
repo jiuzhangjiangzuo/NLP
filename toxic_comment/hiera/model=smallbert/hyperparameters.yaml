@@ -1,0 +1,8 @@
+training:
+  model_name: 'smallbert'
+  learning_rate: 0.00003
+  dropout_rate: 0.1
+  epochs: 1
+preprocessing:
+  input_convertor: 'tf_dataset'
+  skip_tokenization: True

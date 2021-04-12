@@ -1,0 +1,10 @@
+training:
+  model_name: 'grucnn'
+  learning_rate: 0.8
+  embedding_dim: 100
+  optimizer: 'adam'
+  epochs: 1
+preprocessing:
+  input_convertor: 'nn_vectorization'
+  pretrained_embedding: './data/glove.twitter.27B.100d.txt'
+  embedding_dim: 100

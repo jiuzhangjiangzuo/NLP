@@ -1,0 +1,41 @@
+preprocessing:
+  split_ratio: 0.3
+  input_trainset: './data/train.csv'
+  input_testset: './data/test.csv'
+  random_seed: 0
+  classes:
+    - 'toxic'
+    - 'severe_toxic'
+    - 'obscene'
+    - 'threat'
+    - 'insult'
+    - 'identity_hate'
+  input_text_column: 'comment_text'
+  input_id_column: 'id'
+  maxlen: 128
+  skip_tokenization: False
+  batch_size: 32
+training:
+  learning_rate: 1.0
+  dropout_rate: 0.5
+  batch_normalization: True
+  optimizer: 'sgd'
+  epochs: 1
+  gradient_cliping: True
+  batch_size: 32
+  embedding_dim: 128
+  maxlen: 128
+  predict_only: False
+  output_path: "./output"
+predict:
+  output_path: './data/submission.csv'
+  enable_calibration: False
+  calibrator_type: 'platt_scaling'
+  calibrators_output_path: './output'
+  classes:
+    - 'toxic'
+    - 'severe_toxic'
+    - 'obscene'
+    - 'threat'
+    - 'insult'
+    - 'identity_hate'

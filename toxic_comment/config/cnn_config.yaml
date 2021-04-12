@@ -1,0 +1,43 @@
+preprocessing:
+  batch_size: 32
+  classes:
+  - toxic
+  - severe_toxic
+  - obscene
+  - threat
+  - insult
+  - identity_hate
+  embedding_dim: 100
+  input_convertor: nn_vectorization
+  input_id_column: id
+  input_testset: ./data/test.csv
+  input_text_column: comment_text
+  input_trainset: ./data/train.csv
+  maxlen: 128
+  pretrained_embedding: ./data/glove.twitter.27B.100d.txt
+  random_seed: 0
+  skip_tokenization: false
+  split_ratio: 0.3
+training:
+  batch_normalization: true
+  batch_size: 32
+  dropout_rate: 0.5
+  embedding_dim: 100
+  epochs: 1
+  gradient_cliping: true
+  learning_rate: 0.8
+  maxlen: 128
+  model_name: textcnn
+  optimizer: sgd
+  output_path: ./output
+  predict_only: false
+predict:
+  classes:
+  - toxic
+  - severe_toxic
+  - obscene
+  - threat
+  - insult
+  - identity_hate
+  enable_calibration: false
+  output_path: ./data/submission.csv

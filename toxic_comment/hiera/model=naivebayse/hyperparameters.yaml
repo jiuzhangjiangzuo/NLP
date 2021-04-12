@@ -1,0 +1,4 @@
+preprocessing:
+  input_convertor: 'count_vectorization'
+training:
+  model_name: 'naivebayse'

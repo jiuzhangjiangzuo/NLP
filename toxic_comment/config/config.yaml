@@ -1,0 +1,25 @@
+preprocessing:
+  classes:
+  - toxic
+  - severe_toxic
+  - obscene
+  - threat
+  - insult
+  - identity_hate
+  input_convertor: count_vectorization
+  input_id_column: id
+  input_testset: ./data/mini_test.csv
+  input_text_column: comment_text
+  input_trainset: ./data/mini_train.csv
+  random_seed: 0
+  split_ratio: 0.3
+training:
+  batch_normalization: true
+  dropout_rate: 0.5
+  epochs: 10
+  gradient_cliping: true
+  learning_rate: 1.0
+  model_name: naivebayse
+  optimizer: sgd
+predict:
+  output_path: ./data/submission.csv
