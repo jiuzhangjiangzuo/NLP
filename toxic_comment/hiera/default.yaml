@@ -32,6 +32,7 @@ predict:
   enable_calibration: False
   calibrator_type: 'platt_scaling'
   calibrators_output_path: './output'
+  debug_validation: False
   classes:
     - 'toxic'
     - 'severe_toxic'

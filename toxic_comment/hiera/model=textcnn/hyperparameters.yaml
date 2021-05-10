@@ -6,3 +6,5 @@ preprocessing:
   input_convertor: 'nn_vectorization'
   pretrained_embedding: './data/glove.twitter.27B.100d.txt'
   embedding_dim: 100
+predict:
+  enable_calibration: True

@@ -32,7 +32,7 @@ class Preprocessor(object):
                 data_frame
             return:
                 tokenized_input (np.array)    #[i, haven, t, paraphrased, you, at, all, gary,...]
-                one_hot_label (np.array)      #[0, 0, 0, 0, 0, 0, 1] with 'none' label as the last dimension
+                one_hot_label (np.array)      #[0, 0, 0, 0, 0, 0]
         '''
         X = None
         if skip_tokenization:

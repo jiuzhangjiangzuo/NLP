@@ -1,6 +1,8 @@
+import os
 import csv
 import numpy as np
 from .calibrator import Calibrator
+from sklearn.metrics import classification_report
 
 class Predictor(object):
     def __init__(self, config, logger, model):
@@ -13,7 +15,7 @@ class Predictor(object):
                 self.calibators.append(Calibrator(model_type=self.config['calibrator_type']))
 
     def predict(self, test_x):
-        pred_probs = self.predict(test_x)
+        pred_probs = self.predict_prob(test_x)
         return pred_probs >= 0.5
 
     def predict_raw_prob(self, test_x):
@@ -28,6 +30,18 @@ class Predictor(object):
         if self.config['enable_calibration']:
             prob = self._calibrate(prob)
         return prob
+
+    def debug_validation_set(self, validate_x, validate_y):
+        predictions = self.predict(validate_x)
+        cls_report = classification_report(validate_y, predictions, zero_division=1)
+        self.logger.info("\n{}\n".format(cls_report))
+
+        with open("./data/debug_validation.csv", 'w') as debug_csv_file:
+            header = ["pred_{}".format(cls) for cls in self.config['classes']] + self.config['classes']
+            writer = csv.writer(debug_csv_file)
+            writer.writerow(header)
+            for pred, truth in zip(predictions.tolist(), validate_y.tolist()):
+                writer.writerow(pred + truth)
 
     def save_result(self, test_ids, probs):
         with open(self.config['output_path'], 'w') as output_csv_file:
