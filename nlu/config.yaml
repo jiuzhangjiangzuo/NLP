@@ -1,0 +1,17 @@
+preprocessing:
+  csl_data_file: 'cls_data.pickle'
+  weather_seq_data_file: 'weather_seq_data.pickle'
+training:
+  batch_normalization: true
+  batch_size: 32
+  dropout_rate: 0.5
+  embedding_dim: 64
+  seq_epochs: 20
+  cls_epochs: 5
+  gradient_cliping: true
+  learning_rate: 0.8
+  maxlen: 64
+  optimizer: sgd
+  output_path: ./output
+  predict_only:  false
+  enable_sample_weight: false
